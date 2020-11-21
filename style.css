@@ -59,7 +59,7 @@ span#nasu {
 	right: -150px;
 }
 
-@media (max-width: 800px) {
+@media (min-width: 350px) {
 img {
 	width: 300px;
 	margin-left: 65%;
