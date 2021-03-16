@@ -1,0 +1,250 @@
+/*menu*/
+
+#mySidenav a {
+  position: absolute;
+  left: -80px;
+  transition: 0.3s;
+  padding: 15px;
+  width: 100px;
+  text-decoration: none;
+  font-size: 17px;
+  color: white;
+  border-radius: 0 5px 5px 0;
+  font-family: 'Barriecito';
+}
+
+#mySidenav a:hover {
+  left: 0;
+}
+
+#home {
+  top: 20px;
+  background-color: #231c19;
+}
+
+#about {
+  top: 80px;
+  background-color: #6c3338;
+}
+
+#support {
+  top: 140px;
+  background-color: #ba9b79;
+}
+
+#contact {
+  top: 200px;
+  background-color: #6a4523;
+}
+
+
+#home1 {
+  top: 20px;
+  background-color: #302b38;
+}
+
+#about1 {
+  top: 80px;
+  background-color: #77348e;
+}
+
+#support1 {
+  top: 140px;
+  background-color: #8c52a3;
+}
+
+#contact1 {
+  top: 200px;
+  background-color: #b28cc1;
+}
+
+
+
+
+
+
+
+/*flip box */
+
+.flip-box {
+  background-color: transparent;
+  width: 80%;
+  height: 1300px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  perspective: 1000px;
+}
+
+.flip-box-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  
+}
+
+.flip-box:hover .flip-box-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-box-front, .flip-box-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-box-front {
+  background-color: rgba(255,255,255,0.4);
+  color: black;
+}
+
+.flip-box-back {
+  background-color: rgba(255,255,255,0.4);
+  color: black;
+  transform: rotateY(180deg);
+}
+
+
+div {
+	font-family: 'PMingLiU' ;
+}
+
+
+
+
+
+
+h2,h4 {
+	color: #000000;
+	}
+	
+
+.copyright {
+	margin: 2px;
+	padding: 0;
+	color: #dfe3e2;
+	position: relative;
+	bottom: 1px;
+	font-family: 'Chathura';
+	font-size: 13px;
+}
+
+
+
+
+
+
+.btn-circle-border {
+  display: inline-block;
+  text-decoration: none;
+  background: #711e92;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: bold;
+  font-family: 'Barriecito';
+  width: 120px;
+  height: 120px;
+  line-height: 120px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0px 0px 0px 5px #711e92;
+  border: solid 2px rgba(255, 255, 255, 0.8);
+  transition: .4s;
+  
+  position:fixed;
+  left: 19%;
+  top: 45%;
+}
+
+.btn-circle-border:hover {
+  border-style: dashed;
+}
+
+
+
+
+.btn-circle-stitch {
+  display: inline-block;
+  text-decoration: none;
+  background: #c994dd;
+  color: #FFF;
+  width: 120px;
+  height: 120px;
+  line-height: 120px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0px 0px 0px 5px #c994dd;
+  border: dashed 1px #FFF;
+  transition: .4s;
+  font-family: 'Barriecito';
+  
+  position:fixed;
+  left: 13%;
+  top: 24%;
+}
+
+.btn-circle-stitch:hover {
+  background: #711e92;
+  box-shadow: 0px 0px 0px 5px #711e92;
+}
+
+
+#nasubi {
+	width: 300px;
+	position:fixed;
+    left: 19%;
+    top: 20%;
+}
+
+
+
+
+
+
+.btn-square-above-look {
+  display: inline-block;
+  position: relative;
+  padding: 0.35em 1em;
+  background: #8c52a3;/*ボタン色*/
+  color: #FFF;
+  text-decoration: none;
+}
+
+.btn-square-above-look:before {
+  content: "";
+  position: absolute;
+  top: -16px;
+  left: 0;
+  width: -webkit-calc(100% - 16px);
+  width: calc(100% - 16px);
+  height: 0;
+  border: solid 8px transparent;
+  border-bottom-color: #b28cc1;/*ボタン色より明るめの色に*/
+}
+
+.btn-square-above-look:active {
+  /*押したとき*/
+  padding: 0.32em 0.9em;
+  -webkit-transform: translateY(-2px);
+  transform: translateY(-2px);
+}
+
+.btn-square-above-look:active:before { 
+  width: -webkit-calc(100% - 12px);
+  width: calc(100% - 12px);
+}
+
+.btn-square-above-look:active:before {
+  top:-12px;
+  border-width: 6px;
+}
+
+
+
+

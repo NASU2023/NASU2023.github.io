@@ -1,0 +1,131 @@
+<html>
+<head>
+<title>NASU ★彡
+</title>
+<link rel="stylesheet" href="style.css" type="text/css">
+<link href='https://fonts.googleapis.com/css?family=Barriecito' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Chathura' rel='stylesheet'>
+<link rel="shortcut icon" href="image/favicon.png">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+</head>
+<body style="color: #000000; background-color: #ffffff; background-image: url(image/nasu3.jpg); background-size:cover;">
+
+<div id="mySidenav" class="sidenav">
+  <a href="index.html" id="home1" >Home&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;★彡</a>
+  <a href="about.html" id="about1">About&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;★彡</a>
+  <a href="donate.html" id="support1" style="color: #f6d036;">Support&nbsp;&nbsp;★彡</a>
+  <a href="contact.html" id="contact1">Contact&nbsp;&nbsp;&nbsp;★彡</a>
+</div>
+
+<br><br><br><br><br><br><br>
+
+<div id="smart-button-container">
+      <div style="text-align: center;">
+        <div style="margin-bottom: 1.25rem;">
+          <p style="color: white;   font-family: 'Barriecito';"><big>Donate some Eggplants....　<span style="color: #1793c7;">(寄付)</span></big><br> <small> <span style="color: #0070ba;">(個人情報は書かなくてええで。)</span></small></p>
+          <select id="item-options"><option value="small Eggplant (寄付)" price="1000">small Eggplant (寄付) - 1000 JPY</option><option value="an Eggplant　(寄付)" price="10000">an Eggplant　(寄付) - 10000 JPY</option><option value="big Eggplant (寄付)" price="100000">big Eggplant (寄付) - 100000 JPY</option><option value="huge Eggplant (寄付)" price="1000000">huge Eggplant (寄付) - 1000000 JPY</option><option value="dekaNASU (寄付)" price="10000000">dekaNASU (寄付) - 10000000 JPY</option></select>
+          <select style="visibility: hidden" id="quantitySelect"></select>
+        </div>
+      <div id="paypal-button-container"></div>
+      </div>
+    </div>
+    <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=JPY" data-sdk-integration-source="button-factory"></script>
+    <script>
+      function initPayPalButton() {
+        var shipping = 0;
+        var itemOptions = document.querySelector("#smart-button-container #item-options");
+    var quantity = parseInt();
+    var quantitySelect = document.querySelector("#smart-button-container #quantitySelect");
+    if (!isNaN(quantity)) {
+      quantitySelect.style.visibility = "visible";
+    }
+    var orderDescription = 'Donate some Eggplants....　(寄付)';
+    if(orderDescription === '') {
+      orderDescription = 'Item';
+    }
+    paypal.Buttons({
+      style: {
+        shape: 'pill',
+        color: 'black',
+        layout: 'vertical',
+        label: 'paypal',
+        
+      },
+      createOrder: function(data, actions) {
+        var selectedItemDescription = itemOptions.options[itemOptions.selectedIndex].value;
+        var selectedItemPrice = parseFloat(itemOptions.options[itemOptions.selectedIndex].getAttribute("price"));
+        var tax = (0 === 0) ? 0 : (selectedItemPrice * (parseFloat(0)/100));
+        if(quantitySelect.options.length > 0) {
+          quantity = parseInt(quantitySelect.options[quantitySelect.selectedIndex].value);
+        } else {
+          quantity = 1;
+        }
+
+        tax *= quantity;
+        tax = Math.round(tax * 100) / 100;
+        var priceTotal = quantity * selectedItemPrice + parseFloat(shipping) + tax;
+        priceTotal = Math.round(priceTotal * 100) / 100;
+        var itemTotalValue = Math.round((selectedItemPrice * quantity) * 100) / 100;
+
+        return actions.order.create({
+          purchase_units: [{
+            description: orderDescription,
+            amount: {
+              currency_code: 'JPY',
+              value: priceTotal,
+              breakdown: {
+                item_total: {
+                  currency_code: 'JPY',
+                  value: itemTotalValue,
+                },
+                shipping: {
+                  currency_code: 'JPY',
+                  value: shipping,
+                },
+                tax_total: {
+                  currency_code: 'JPY',
+                  value: tax,
+                }
+              }
+            },
+            items: [{
+              name: selectedItemDescription,
+              unit_amount: {
+                currency_code: 'JPY',
+                value: selectedItemPrice,
+              },
+              quantity: quantity
+            }]
+          }]
+        });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          alert('Transaction completed by ' + details.payer.name.given_name + '!');
+        });
+      },
+      onError: function(err) {
+        console.log(err);
+      },
+    }).render('#paypal-button-container');
+  }
+  initPayPalButton();
+    </script>
+	
+	
+	
+	
+	<footer>
+<center>
+
+<div style="position: fixed; bottom: 5px; left: 41%;">
+<br>
+<br>
+<br>
+<h6 class="copyright">万能制作会社 by NASU妄想プロデュース</h6>
+<h6 class="copyright">© 2021　All Rights Reserved.</h6>
+</div>
+</center>
+</footer>
+	</body>
+</html>
